@@ -150,10 +150,7 @@ const Index = () => {
 
     async function startCamera() {
       try {
-        const qrCodeSuccessCallback = async (
-          decodedText: any,
-          decodedResult: any
-        ) => {
+        const qrCodeSuccessCallback = async (decodedText: any, decodedResult: any) => {
           // console.log(`Code matched = ${decodedText}`, decodedResult);
           try {
             const res = await api.get(`reservasi/qrcode`, {
@@ -513,8 +510,7 @@ const Index = () => {
                     <AccordionItem value={`item-${index}`} key={index}>
                       <AccordionTrigger
                         className={cn(theme == "dark" ? "text-black" : "")}>
-                        {" "}
-                        {index + 1}. Proses Pengisian BBM,{" "}
+                        {index + 1}. Proses Pengisian BBM,
                         {format(item.created_at, "d LLL y HH:mm")}
                       </AccordionTrigger>
                       <AccordionContent>
@@ -534,22 +530,21 @@ const Index = () => {
                                 className="border-none"
                                 key={`${index}${i}`}>
                                 <AccordionTrigger className="py-2 text-white">
-                                  {" "}
-                                  {i + 1}. Pengisian BBM,{" "}
+                                  {i + 1}. Pengisian BBM,
                                   {format(itx.created_at, "d LLL y HH:mm")}
                                 </AccordionTrigger>
                                 <AccordionContent className="grid rounded-sm items-center p-2">
                                   <p className="text-white text-sm">
-                                    Pengisian dengan{" "}
+                                    Pengisian dengan
                                     <span className="text-white font-medium ">
-                                      {itx.jenis}{" "}
-                                    </span>{" "}
+                                      {itx.jenis}
+                                    </span>
                                     <span className=" text-white text-sm">
                                       {itx.jenis == "Voucher"
                                         ? `${itx.liter} Liter`
                                         : `Nominal Rp.${parseFloat(
-                                            Number(itx.uang).toFixed(2)
-                                          ).toLocaleString()}`}
+                                          Number(itx.uang).toFixed(2)
+                                        ).toLocaleString()}`}
                                     </span>
                                   </p>
                                   <p className="text-amber-300">Struck / Bon</p>

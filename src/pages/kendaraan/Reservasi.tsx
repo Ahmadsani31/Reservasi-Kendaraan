@@ -62,7 +62,7 @@ const Reservasi = ({ setLoading }: Props) => {
         timeout: Infinity,
       },
       watchPosition: false,
-      userDecisionTimeout: 5000,
+      userDecisionTimeout: 3000,
     });
 
   const [formExit, setFormExit] = useState({
@@ -187,14 +187,8 @@ const Reservasi = ({ setLoading }: Props) => {
       const reservasi_id = localStorage.getItem("reservasi_id");
       const formData = new FormData();
       formData.append("fileImage", formCheckpoint.fileImage, "checkpoint.png");
-      formData.append(
-        "latitude",
-        coords?.latitude ? coords.latitude.toString() : ""
-      );
-      formData.append(
-        "longitude",
-        coords?.longitude ? coords.longitude.toString() : ""
-      );
+      formData.append("latitude", coords?.latitude ? coords.latitude.toString() : "");
+      formData.append("longitude", coords?.longitude ? coords.longitude.toString() : "");
       formData.append("reservasi_id", reservasi_id);
       const response = await api.postForm(`/checkpoint/save`, formData);
       if (response.status === true) {
@@ -239,20 +233,10 @@ const Reservasi = ({ setLoading }: Props) => {
       const reservasi_id = localStorage.getItem("reservasi_id");
       const formData = new FormData();
 
-      formData.append(
-        "fileImage",
-        formExit.fileImage,
-        "spidometer-capture.png"
-      );
+      formData.append("fileImage", formExit.fileImage, "spidometer-capture.png");
       formData.append("spidometer", formExit.spidometer);
-      formData.append(
-        "latitude",
-        coords?.latitude ? coords.latitude.toString() : ""
-      );
-      formData.append(
-        "longitude",
-        coords?.longitude ? coords.longitude.toString() : ""
-      );
+      formData.append("latitude", coords?.latitude ? coords.latitude.toString() : "");
+      formData.append("longitude", coords?.longitude ? coords.longitude.toString() : "");
       formData.append("reservasi_id", reservasi_id);
 
       const response = await api.postForm(
