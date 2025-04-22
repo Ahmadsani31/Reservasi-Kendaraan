@@ -1,5 +1,7 @@
 # Reservasi Kendaraan
 
+Hospital vehicle usage recording application system based on QR code and location coordinates, web based mobile view only
+
 ## How to use?
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
